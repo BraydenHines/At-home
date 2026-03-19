@@ -173,7 +173,6 @@ function power(a, b) {
   if (b==0){
     return 1;
   }
-
   let negative=false;
   if (b<0){
     b*=-1
@@ -214,7 +213,18 @@ function power(a, b) {
  * @return {[boolean, number]} Returns [true, squareRoot] for non-negative inputs, otherwise [false, 0].
  */
 function sqrt(x) {
-
+  let guess = x
+  let old = guess
+  if (x < 0){
+    return [false, 0]
+  }
+  if (x == 0){
+    return [true, 0]
+  }
+  while (guess != old){
+    guess = (old + x / old) / 2
+  }
+  return [true, guess]
 }
 
 /**
