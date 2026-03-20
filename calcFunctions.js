@@ -170,20 +170,25 @@ function toggleSign(x) {
  * @return {number} The value of a raised to the power of b.
  */
 function power(a, b) {
-  if (b==0){
-    return 1;
+  if (b == 0){
+    if (a == 0){
+      return 0
+    }
+    else{
+      return 1
+    }
   }
-  let negative=false;
-  if (b<0){
-    b*=-1
-    negative=true;
+  let negative = false;
+  if (b < 0){
+    b *= -1
+    negative = true;
   }
-  let c=1
-  for (let i=0;i<b;i++){
-    c*=a
+  let c = 1
+  for (let i = 0; i < b; i++){
+    c *= a
   }
   if (negative){
-    c=1/c
+    c = 1/c
   }
   return c
 }
@@ -213,18 +218,7 @@ function power(a, b) {
  * @return {[boolean, number]} Returns [true, squareRoot] for non-negative inputs, otherwise [false, 0].
  */
 function sqrt(x) {
-  let guess = x
-  let old = guess
-  if (x < 0){
-    return [false, 0]
-  }
-  if (x == 0){
-    return [true, 0]
-  }
-  while (guess != old){
-    guess = (old + x / old) / 2
-  }
-  return [true, guess]
+  
 }
 
 /**
